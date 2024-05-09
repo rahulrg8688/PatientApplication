@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+    <div class="container-fluid">
+      <h3 class="navbar-brand">Suja</h3>
+      
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <ng-container *ngFor="let data of navs;let i=index">
+          <a class="nav-link active" routerLinkActive="active" aria-current="page" [routerLink]="data.url">{{data.title}}</a>
+         
+          </ng-container>
+          <!-- <button class="btn btn-danger" (click)="Logout()">Logout</button> -->
+          <a routerLink="/Admin" (click)="Logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>

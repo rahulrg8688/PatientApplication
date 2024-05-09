@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="bg-primary">
+            <h1>Doctor List</h1>
+        </div>
+        <div>
+            <button type="button" class="btn btn-warning" (click)="Adddoctor()">Add Doctor</button>
+        </div>
+        <div class="d-flex">
+            <div class="bg-light">
+                    <h1>Filters</h1>
+                    <p>select Speciality</p>
+                    <select class="form-select" [(ngModel)]="SelectedSpeciality" (change)="filterSpecilaity()">
+                        <option>--select--</option>
+                        <option *ngFor="let data of doctorSpeciality;let i=index"  [value]="data.spid">{{data.specialityName}}</option>
+                    </select>
+
+            </div>
+        <div>
+        <table class="table table-bordered bg-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Doctor Id</th>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">Doctor Fee</th>
+                    <th scope="col">Doctor Experience</th>
+                    <th scope="col">Doctor Speciality</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <ng-container *ngIf="dropTouched==false">
+            <tbody *ngFor="let doct of doctorDetails;let i=index">
+                <tr>
+                    <td>{{doct.doctorId}}</td>
+                    <td>{{doct.doctorName}}</td>
+                    <td>{{doct.doctorExp}}</td>
+                    <td>{{doct.fee}}</td>
+                    <td>{{doct.specialities.specialityName}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="Delete(doct.doctorId)">D</button>
+                        <button type="button" class="btn btn-dark" (click)="Update(doct.doctorId)">U</button>
+                    </td>
+                </tr>
+            </tbody>
+            </ng-container>
+          
+            <ng-container *ngIf="dropTouched==true">
+                <tbody *ngFor="let doct of filteredDoctors;let i=index">
+                    <tr>
+                        <td>{{doct.doctorId}}</td>
+                        <td>{{doct.doctorName}}</td>
+                        <td>{{doct.doctorExp}}</td>
+                        <td>{{doct.fee}}</td>
+                        <td>{{doct.specialities.specialityName}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="Delete(doct.doctorId)">D</button>
+                            <button type="button" class="btn btn-dark" (click)="Update(doct.doctorId)">U</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </ng-container>
+        </table>
+    </div>
+    </div>
+    </div>
+</div>

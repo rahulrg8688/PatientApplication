@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1 class="navbar-brand">Suja Hospital</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end m-1" id="navbarNavAltMarkup">
+      <div class="navbar-nav ">
+       <a class="nav-item nav-link active" routerLinkActive="active" routerLink="/userAdminLogin">Register<span class="sr-only">(current)</span></a>
+               <a class="nav-item nav-link" *ngIf="!isLoggedIn" routerLink="/Admin">Login</a>
+            <a class="nav-item nav-link" (click)="Logout()" routerLinkActive="active" routerLink="{{nav.Link}}">{{nav.title}}</a>
+            
+        
+        <div *ngIf="isLoggedIn">
+            <div>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/patientLogin">Patient Login</a>
+            </div>
+            <div>
+            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/patientHistory">history</a>
+            </div>
+            <a *ngIf="role==='admin'" class="nav-item nav-link" routerLinkActive="active" routerLink="/my-admin">Admin</a>
+        </div>
+        
+      </div>
+    </div>
+  </nav>

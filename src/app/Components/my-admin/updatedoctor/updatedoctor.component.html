@@ -1,0 +1,40 @@
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-title">
+            <h1>Update Doctor</h1>
+        </div>
+        <div class="card-body" *ngIf="retData!=null">
+            <form class="form" [formGroup]="UpdateDoctor">
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor name</label>
+                <input type="text" readonly class="form-control" formControlName="Name" value="{{retData.doctorName}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Experience</label>
+                <input type="text" class="form-control" formControlName="exp" value="{{retData.doctorExp}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Fee</label>
+                <input type="text" class="form-control" formControlName="Fee" value="{{retData.fee}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Select speciality</label>
+                <div>
+                <input type="text" readonly class="form-control" formControlName="spe" value="{{retData.specialities.specialityName}}"/>
+                </div>
+            </div>
+            <div class="form-check p-3">
+                <label class="form-label">Gender</label>
+                <input type="text" readonly class="form-control" formControlName="gen" value="{{retData.gender}}"/>
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="Update()">Update</button>
+            <a class="btn btn-danger" routerLink="/my-admin/mydoctors">cancel</a>
+            </form>
+            <p>{{UpdateMsg}}</p>
+        </div>
+    </div>
+</div>

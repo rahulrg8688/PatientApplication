@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-title">
+            <h1>Add Doctor</h1>
+        </div>
+        <div class="card-body">
+            <form class="form" [formGroup]="AddDoctor">
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor name</label>
+                <input type="text" class="form-control" formControlName="DoctName"  placeholder="Enter doctor name"/>
+           <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctName')?.hasError('required')">Required</span>
+           <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctName')?.hasError('pattern')">Enter only Alphabets</span>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Experience</label>
+                <input type="text" class="form-control" formControlName="DoctExp" placeholder="Enter doctor name"/>
+                <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctExp')?.hasError('required')">Required</span>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Fee</label>
+                <input type="text" class="form-control" formControlName="DoctFee" placeholder="Enter doctor name"/>
+                <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctFee')?.hasError('required')">Required</span>
+                <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctFee')?.hasError('pattern')">Enter only digit</span>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Select speciality</label>
+                <div>
+                <select class="form-select" formControlName="DoctSpecalityId" >
+                    <option>--select--</option>
+                    <option *ngFor="let data of DoctorSpeciality;let i=index" [value]="data.spid">{{data.specialityName}}</option>
+                </select>
+                </div>
+                <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctSpecalityId')?.hasError('required')">Required</span>
+            </div>
+            <div class="form-check p-3">
+                <label class="form-label">Gender</label>
+                <div class="form-check pl-3">
+                <input class="form-check-input" type="radio" name="Gender" formControlName="DoctGender" id="Male" value="Male"/>
+                <label class="form-check-label" for="Male">Male</label>
+                </div>
+                <div class="form-check pl-3">
+                <input class="form-check-input" type="radio" formControlName="DoctGender" name="Gender" id="Female" value="Female"/>
+                <label class="form-check-label" for="Female">Female</label>
+            </div>
+            <span [ngClass]="clr" *ngIf="AddDoctor.get('DoctGender')?.hasError('required')">Required</span>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="InsertDetails()">Insert</button>
+            <a routerLink="/my-admin/mydoctors">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-title btn-danger">
+            <h1>Delete Doctor</h1>
+        </div>
+        <div class="card-body">
+            <form class="form">
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor name</label>
+                <input type="text" class="form-control" value="{{DoctorById.doctorName}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Experience</label>
+                <input type="text" class="form-control" value="{{DoctorById.doctorExp}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Enter doctor Fee</label>
+                <input type="text" class="form-control" value="{{DoctorById.fee}}"/>
+            </div>
+            <div class="m-1 p-3">
+                <label class="form-label">Select speciality</label>
+                <div>
+                <input type="text" class="form-control" value="{{DoctorById.specialities.specialityName}}"/>
+                </div>
+            </div>
+            <div class="form-check p-3">
+                <label class="form-label">Gender</label>
+                <input type="text" class="form-control" value="{{DoctorById.gender}}"/>
+            </div>
+
+            <button type="button" class="btn btn-danger" (click)="Delete()">Delete</button>
+            <a class="btn btn-warning m-1" routerLink="/my-admin/mydoctors">cancel</a>
+            </form>
+            <h1>{{DeleteMsg}}</h1>
+        </div>
+    </div>
+</div>

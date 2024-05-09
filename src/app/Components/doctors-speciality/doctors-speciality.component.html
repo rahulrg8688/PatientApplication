@@ -1,0 +1,43 @@
+<div class="row m-2">
+
+    <ng-container *ngFor="let data of DoctorsInfo;let i=index">
+    <div class="col-sm-6">
+       
+      <div class="card m-2 p-2">
+        <h1>Speciality Doctors</h1>
+       
+        <div class="card-body">
+          
+
+            
+          <h5 class="card-title"></h5>
+          
+            <div class="d-flex">
+                <label>Name : </label>
+                <p> DR.{{data.doctorName |uppercase}}</p>
+              </div>
+            <div class="d-flex">
+                <label>Doctor Experience : </label>
+                <p>{{data.doctorExp}}</p>
+            </div>    
+          <div class="d-flex">
+            <label>Fee : </label>
+            <p>{{data.fee}}</p>
+          </div>
+          <div class="d-flex">
+            <label>Speciality : </label>
+            <p>{{data.specialities.specialityName}}</p>
+          </div>
+          
+
+          
+          <button type="button" class="btn btn-primary" (click)="SpecificDoctor(data.doctorId)">Book Appointment</button>
+        
+          
+        </div>
+    
+      </div>
+    
+    </div>
+</ng-container>
+</div>

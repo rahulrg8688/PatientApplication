@@ -1,0 +1,44 @@
+ <app-nav-bar-header></app-nav-bar-header>
+    <div class="container">
+        <div class="row">
+            
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h1>Patient Login</h1>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="LoginForm">
+                <div class="mt-3 mb-3">
+                    <label class="form-label">Enter patient name</label>
+                    <input type="text" [ngClass]="{'is-invalid':IsFormSubmitted&&LoginForm.get('patientName')?.hasError}" class="form-control" formControlName="patientName"/>
+                    <span *ngIf="IsFormSubmitted&&LoginForm.get('patientName')?.hasError('required')">Required Field</span>
+                <span  *ngIf="IsFormSubmitted&&LoginForm.get('patientName')?.hasError('pattern')">Plz Enter only Alphabets</span>
+                </div>
+                <div class="mt-3 mb-3">
+                    <label class="form-label">Enter patient Mobile</label>
+                    <input type="number" [ngClass]="{'is-invalid':IsFormSubmitted && LoginForm.get('patientMobile')?.hasError}" class="form-control" formControlName="patientMobile"/>
+                <span   *ngIf="IsFormSubmitted&&LoginForm.get('patientMobile')?.hasError('required')">Required Field</span>
+                <span   *ngIf="IsFormSubmitted && LoginForm.get('patientMobile')?.hasError('pattern')">Plz enter only numbers</span>
+                </div>
+                <div class="mt-3 mb-3">
+                    <label class="form-label">Enter patient MailId</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid':IsFormSubmitted && LoginForm.get('patientMail')?.hasError}" formControlName="patientMail"/>
+                    <span   *ngIf="IsFormSubmitted && LoginForm.get('patientMail')?.hasError('required')">Required</span>
+                    <span   *ngIf="IsFormSubmitted && LoginForm.get('patientMail')?.hasError('email')">Enter valid Email</span>
+                </div>
+                <div>
+                    <label>Select Speciality</label>
+                    <select class="form-select" [ngClass]="{'is-invalid':IsFormSubmitted && LoginForm.get('patientPreferedDoctor')?.hasError}" formControlName="patientPreferedDoctor">
+                        <option>Select</option>
+                        <option *ngFor="let data of DropDownSpeciality;let i=index"  [value]="data.spid">{{data.specialityName}}</option>
+                    </select>
+                    <span  *ngIf="IsFormSubmitted && LoginForm.get('patientPreferedDoctor')?.hasError('required')">Required</span>
+              
+                </div>
+                </form>
+                <button type="button" class="btn btn-warning m-2" (click)="Login()">Login</button>
+                <a class="btn btn-primary" routerLink="/register">Patient Registration</a>
+                </div>
+            </div>
+        </div>
+    </div>

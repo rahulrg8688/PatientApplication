@@ -1,0 +1,9 @@
+.bg-img{
+    background-image:url('/assets/Hospitalimages/hospital-building-modern-parking-lot-59693686.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+
+  position:relative;
+}

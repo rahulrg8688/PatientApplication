@@ -1,0 +1,29 @@
+<app-nav-bar-header></app-nav-bar-header>
+<div class="containerfluid d-flex flex-row justify-content-center align-items-center img">
+    <div class="row">
+        <div class="card Login">
+            <div class="card-header bg-primary">
+                <h1>Login Page</h1>
+            </div>
+            <div class="card-body">
+                <form id="Register" [formGroup]="AdminLogin" >
+                    <div class="mt-3 mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" [ngClass]="{'is-invalid':IsSubmit && AdminLogin.get('username')?.hasError}"  formControlName="username" />
+                        <span [ngClass]="clr" *ngIf="IsSubmit&&AdminLogin.get('username')?.hasError('required')">Required</span>
+                        <span [ngClass]="clr">{{UsernameErr}}</span>
+                    </div>
+                    <div class="mt-3 mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" [ngClass]="{'is-invalid':IsSubmit && AdminLogin.get('password')?.hasError}"  formControlName="password"/>
+                        <span [ngClass]="clr" *ngIf="IsSubmit&&AdminLogin.get('password')?.hasError('required')">Required</span>
+                    <span [ngClass]="clr">{{passwrdErr}}</span>
+                    </div>
+                    <button type="submit"  (click)="Login()" class="btn btn-primary">Login</button>
+                    <a class="m-2" routerLink="/">cancel</a>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>    

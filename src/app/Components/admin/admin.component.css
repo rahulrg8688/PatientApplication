@@ -1,0 +1,13 @@
+.red{
+    color:red;
+    font-weight: bold;
+}
+.img{
+    background-image: url('/assets/EhospitalImage1.jpg');
+    background-image: cover;
+    height:100vh;
+    background-repeat: no-repeat;
+}
+.Login{
+    width:500px;
+}
